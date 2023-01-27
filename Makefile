@@ -14,5 +14,8 @@ publish: install lint build
 lint:
 	poetry run flake8 gendiff
 
+test:
+	poetry run pytest
+
 package-install: install lint build
 	python3 -m pip install --force-reinstall dist/*.whl

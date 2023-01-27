@@ -1,7 +1,7 @@
 import json
 
-from gendiff.core.diff_descriptors import build_diff_descriptors
-from gendiff.core.formats import get_renderer, JSON
+from src.gendiff.core.diff_descriptors import build_diff_descriptors
+from src.gendiff.core.formats import get_renderer, JSON
 
 
 def load_json_from_file(file_path):
