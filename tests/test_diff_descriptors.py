@@ -1,17 +1,14 @@
-import pytest
 from faker import Faker
-import json
 
 from gendiff.core.diff_descriptors import get_added_field_descriptor, \
-    ADDED, MODIFIED, UNCHANGED, DELETED, SUBDESCRIPTORS, \
+    ADDED, MODIFIED, UNCHANGED, DELETED, \
     get_modified_field_descriptor, get_deleted_field_descriptor, \
     get_unchanged_field_descriptor, build_diff_descriptors
 
-def test_diff_builder(test_json_files_and_descriptors):
-    json_1, json_2, expected_descriptors = test_json_files_and_descriptors
 
-    descriptors = build_diff_descriptors(json_1, json_2)
-    assert descriptors == expected_descriptors
+def test_diff_builder(flat_files, flat_descriptors):
+    descriptors = build_diff_descriptors(flat_files[0], flat_files[1])
+    assert descriptors == flat_descriptors
 
 
 def test_get_added_descriptor(faker: Faker):

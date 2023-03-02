@@ -1,5 +1,5 @@
 from gendiff.core.gendiff import load_file
-from tests.constants import FLAT_FILE_1_JSON_PATH, \
+from constants import FLAT_FILE_1_JSON_PATH, \
     FLAT_FILE_2_JSON_PATH, FLAT_FILE_1_YAML_PATH, FLAT_FILE_2_YML_PATH
 
 

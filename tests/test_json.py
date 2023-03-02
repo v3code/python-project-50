@@ -1,8 +1,6 @@
 import pytest
 
-from gendiff.core.gendiff import load_file
 from gendiff.formats.json import build_json_dict
-from tests.constants import FLAT_FILE_1_JSON_PATH, FLAT_FILE_2_JSON_PATH
 
 
 @pytest.fixture

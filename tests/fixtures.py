@@ -9,23 +9,13 @@ def flat_files():
         'host': 'hexlet.io',
         'timeout': 50,
         'proxy': '123.234.53.22',
-        'follow': False,
-        'nested':
-            {
-                'it_should_be_deleted': 41,
-                'it_should_be_modified': 334
-            }
+        'follow': False
     }
 
     file_2 = {
         'timeout': 20,
         'verbose': True,
         'host': 'hexlet.io',
-        'nested':
-            {
-                'it_should_be_modified': 324,
-                'it_should_be_added': 343
-            }
     }
 
     return file_1, file_2
