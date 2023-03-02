@@ -12,7 +12,7 @@ publish: install lint build
 	poetry publish -r test-pypi
 
 lint:
-	poetry run flake8 src
+	poetry run flake8 gendif
 
 test:
 	poetry run pytest
