@@ -12,10 +12,13 @@ publish: install lint build
 	poetry publish -r test-pypi
 
 lint:
-	poetry run flake8 gendiff
+	poetry run flake8 src
 
 test:
 	poetry run pytest
+
+test-coverage:
+	poetry run pytest --cov=gendiff --cov-report xml
 
 package-install: install lint build
 	python3 -m pip install --force-reinstall dist/*.whl

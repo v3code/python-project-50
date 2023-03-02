@@ -1,7 +1,7 @@
 import json
 
-from src.gendiff.core.config import JSON_INDENT
-from src.gendiff.core.diff_descriptors import ADDED, \
+from gendiff.core.config import JSON_INDENT
+from gendiff.core.diff_descriptors import ADDED, \
     DELETED, MODIFIED, SUBDESCRIPTORS
 
 
@@ -33,4 +33,4 @@ def build_json_dict(descriptors):
 
 def render_diff_json(descriptors):
     json_dict = build_json_dict(descriptors)
-    return json.dumps(json_dict, indent=4,)
+    return json.dumps(json_dict, indent=JSON_INDENT)
