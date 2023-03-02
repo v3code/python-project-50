@@ -1,9 +1,0 @@
-{
-  "timeout": 20,
-  "verbose": true,
-  "host": "hexlet.io",
-  "nested": {
-    "it_should_be_modified": 324,
-    "it_should_be_added": 343
-  }
-}

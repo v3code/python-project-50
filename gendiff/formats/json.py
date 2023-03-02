@@ -22,8 +22,8 @@ def build_json_dict(descriptors):
         if descriptor_type == ADDED or descriptor_type == DELETED:
             json_dict[reformat_key(key, descriptor_type)] = value
         elif descriptor_type == MODIFIED:
-            json_dict[f'- {key}'] = value["before"]
-            json_dict[f'+ {key}'] = value["after"]
+            json_dict[reformat_key(key, DELETED)] = value["before"]
+            json_dict[reformat_key(key, ADDED)] = value["after"]
         elif descriptor_type == SUBDESCRIPTORS:
             json_dict[key] = build_json_dict(value)
         else:
