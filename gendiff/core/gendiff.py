@@ -1,5 +1,3 @@
-import json
-
 from gendiff.core.diff_descriptors import build_diff_descriptors
 from gendiff.core.parser import get_extension, parse_file
 from gendiff.formats import get_renderer, JSON

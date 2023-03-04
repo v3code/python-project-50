@@ -18,4 +18,6 @@ def parse_file(file, file_format):
     elif file_format in (YAML_FORMAT, YML_FORMAT):
         return yaml.safe_load(file)
     else:
-        raise NotImplementedError(f'File with format "{file_format}" is not implemented')
+        raise NotImplementedError(
+            f'File with format "{file_format}" is not implemented'
+        )
