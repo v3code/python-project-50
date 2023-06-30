@@ -1,0 +1,20 @@
+common:
+  setting1: Value 1
+  setting2: 100
+  setting6:
+    list:
+      - 1
+      - 2
+      - 3
+    doge:
+      wow: mew
+group3:
+  baz: bas
+  foo: bar
+  nest:
+    add_key: new_value
+group2:
+  abc: abcd
+  deep:
+    id: 45
+    name: john
