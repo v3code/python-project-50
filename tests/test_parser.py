@@ -1,4 +1,4 @@
-from gendiff.core.gendiff import load_file
+from gendiff.core.generator import load_file
 from constants import FLAT_FILE_1_JSON_PATH, \
     FLAT_FILE_2_JSON_PATH, FLAT_FILE_1_YAML_PATH, FLAT_FILE_2_YML_PATH
 
