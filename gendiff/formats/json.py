@@ -1,7 +1,7 @@
 import json
 
-from gendiff.core.config import JSON_INDENT
+from gendiff.core.config import INDENT
 
 
 def render_diff_json(descriptors):
-    json.dumps(descriptors, indent=JSON_INDENT)
+    json.dumps(descriptors, indent=INDENT)

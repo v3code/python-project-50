@@ -1,6 +1,4 @@
-import json
-
-from gendiff.core.config import JSON_INDENT
+from gendiff.core.config import INDENT, INDENT_CHAR
 from gendiff.core.diff_descriptors import ADDED, \
     DELETED, MODIFIED, SUBDESCRIPTORS
 
@@ -13,24 +11,66 @@ def reformat_key(key, descriptor_type):
     return key
 
 
-def build_json_dict(descriptors):
-    json_dict = {}
+def get_indent(depth):
+    return depth * INDENT * INDENT_CHAR
+
+
+def add_field(key, value, depth=0):
+    return f'{get_indent(depth)}{key}: {value}'
+
+
+def process_value(value, depth=0):
+    if isinstance(value, bool):
+        return str(value).lower()
+    elif isinstance(value, dict):
+        formatted = ['{']
+        next_depth = depth + 1
+        for key, dict_val in value.items():
+            dict_val_processed = process_value(dict_val, next_depth)
+            formatted.append(
+                add_field(key, dict_val_processed, next_depth)
+            )
+        formatted.append(f'{get_indent(depth)}}}')
+        return '\n'.join(formatted)
+
+    return value
+
+
+def format_descriptors(descriptors, depth=0):
+    formatted_list = ['{']
+    depth += 1
     for descriptor in descriptors:
-        key = descriptor["key"]
-        value = descriptor["value"]
-        descriptor_type = descriptor["type"]
-        if descriptor_type == ADDED or descriptor_type == DELETED:
-            json_dict[reformat_key(key, descriptor_type)] = value
-        elif descriptor_type == MODIFIED:
-            json_dict[reformat_key(key, DELETED)] = value["before"]
-            json_dict[reformat_key(key, ADDED)] = value["after"]
-        elif descriptor_type == SUBDESCRIPTORS:
-            json_dict[key] = build_json_dict(value)
+        key = descriptor['key']
+        value = descriptor['value']
+
+        if descriptor['type'] == MODIFIED:
+            value_before = process_value(value['before'], depth)
+            value_after = process_value(value['after'], depth)
+            formatted_list.append(
+                add_field(reformat_key(key, DELETED), value_before, depth)
+            )
+            formatted_list.append(
+                add_field(reformat_key(key, ADDED), value_after, depth)
+            )
+        elif descriptor['type'] == ADDED:
+            formatted_list.append(
+                add_field(reformat_key(key, ADDED), process_value(value, depth), depth)
+            )
+        elif descriptor['type'] == DELETED:
+            formatted_list.append(
+                add_field(reformat_key(key, DELETED), process_value(value, depth), depth)
+            )
+        elif descriptor['type'] == SUBDESCRIPTORS:
+            formatted_list.append(
+                add_field(key, format_descriptors(value, depth), depth)
+            )
         else:
-            json_dict[key] = value
-    return json_dict
+            formatted_list.append(
+                add_field(key, process_value(value, depth), depth)
+            )
+    formatted_list.append(f'{get_indent(depth - 1)}}}')
+    return '\n'.join(formatted_list)
 
 
 def render_diff_stylish(descriptors):
-    json_dict = build_json_dict(descriptors)
-    return json.dumps(json_dict, indent=JSON_INDENT)
+    return format_descriptors(descriptors)

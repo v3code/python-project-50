@@ -1,1 +1,2 @@
-JSON_INDENT = 4
+INDENT = 4
+INDENT_CHAR = " "

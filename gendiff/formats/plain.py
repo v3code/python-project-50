@@ -1,8 +1,6 @@
 from gendiff.core.diff_descriptors import (MODIFIED, ADDED,
                                            DELETED, SUBDESCRIPTORS)
 
-FIELD_TEMPLATE = ''
-
 
 def resolve_value(value):
     if isinstance(value, str):
