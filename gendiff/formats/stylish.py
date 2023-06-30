@@ -2,6 +2,8 @@ from gendiff.core.config import INDENT, INDENT_CHAR
 from gendiff.core.diff_descriptors import ADDED, \
     DELETED, MODIFIED, SUBDESCRIPTORS
 
+SYMBOL_DISPLACEMENT = 2
+
 
 def reformat_key(key, descriptor_type):
     if descriptor_type == ADDED:
@@ -11,12 +13,12 @@ def reformat_key(key, descriptor_type):
     return key
 
 
-def get_indent(depth):
-    return depth * INDENT * INDENT_CHAR
+def get_indent(depth, displace=0):
+    return (depth * INDENT - displace) * INDENT_CHAR
 
 
-def add_field(key, value, depth=0):
-    return f'{get_indent(depth)}{key}: {value}'
+def add_field(key, value, depth=0, displace=0):
+    return f'{get_indent(depth, displace)}{key}: {value}'
 
 
 def process_value(value, depth=0):
@@ -47,18 +49,18 @@ def format_descriptors(descriptors, depth=0):
             value_before = process_value(value['before'], depth)
             value_after = process_value(value['after'], depth)
             formatted_list.append(
-                add_field(reformat_key(key, DELETED), value_before, depth)
+                add_field(reformat_key(key, DELETED), value_before, depth, SYMBOL_DISPLACEMENT)
             )
             formatted_list.append(
-                add_field(reformat_key(key, ADDED), value_after, depth)
+                add_field(reformat_key(key, ADDED), value_after, depth, SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == ADDED:
             formatted_list.append(
-                add_field(reformat_key(key, ADDED), process_value(value, depth), depth)
+                add_field(reformat_key(key, ADDED), process_value(value, depth), depth, SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == DELETED:
             formatted_list.append(
-                add_field(reformat_key(key, DELETED), process_value(value, depth), depth)
+                add_field(reformat_key(key, DELETED), process_value(value, depth), depth, SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == SUBDESCRIPTORS:
             formatted_list.append(
