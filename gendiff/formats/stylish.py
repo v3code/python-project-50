@@ -24,6 +24,8 @@ def add_field(key, value, depth=0, displace=0):
 def process_value(value, depth=0):
     if isinstance(value, bool):
         return str(value).lower()
+    if value is None:
+        return 'null'
     elif isinstance(value, dict):
         formatted = ['{']
         next_depth = depth + 1
