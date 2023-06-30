@@ -1,6 +1,6 @@
 import pytest
 
-from gendiff.formats.json import build_json_dict
+from gendiff.formats.stylish import build_json_dict
 
 
 @pytest.fixture

@@ -11,5 +11,6 @@ parser.add_argument("second_file")
 parser.add_argument("-f",
                     "--format",
                     required=True,
+                    choices=['json', 'stylish', 'plain'],
                     metavar="FORMAT",
                     help="set format of output")
