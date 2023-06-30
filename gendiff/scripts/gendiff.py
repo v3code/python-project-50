@@ -1,5 +1,3 @@
-import argparse
-
 from gendiff.core.cli import parser
 from gendiff.core.gendiff import generate_diff
 

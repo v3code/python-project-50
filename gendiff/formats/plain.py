@@ -1,4 +1,5 @@
-from gendiff.core.diff_descriptors import MODIFIED, ADDED, DELETED, SUBDESCRIPTORS
+from gendiff.core.diff_descriptors import (MODIFIED, ADDED,
+                                           DELETED, SUBDESCRIPTORS)
 
 FIELD_TEMPLATE = ''
 
@@ -42,7 +43,9 @@ def get_field_description(root_field, field, change_description):
     return f"Property '{description_field}' was {change_description}."
 
 
-def parse_descriptors(descriptors, root_field=None, diff_description_list=None):
+def parse_descriptors(descriptors,
+                      root_field=None,
+                      diff_description_list=None):
     if diff_description_list is None:
         diff_description_list = []
     for descriptor in descriptors:
