@@ -38,7 +38,7 @@ def resolve_field(field, root_field=None):
 
 def get_field_description(root_field, field, change_description):
     description_field = resolve_field(field, root_field)
-    return f"Property '{description_field}' was {change_description}."
+    return f"Property '{description_field}' was {change_description}"
 
 
 def parse_descriptors(descriptors,
