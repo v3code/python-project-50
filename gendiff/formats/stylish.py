@@ -51,18 +51,30 @@ def format_descriptors(descriptors, depth=0):
             value_before = process_value(value['before'], depth)
             value_after = process_value(value['after'], depth)
             formatted_list.append(
-                add_field(reformat_key(key, DELETED), value_before, depth, SYMBOL_DISPLACEMENT)
+                add_field(reformat_key(key, DELETED),
+                          value_before,
+                          depth,
+                          SYMBOL_DISPLACEMENT)
             )
             formatted_list.append(
-                add_field(reformat_key(key, ADDED), value_after, depth, SYMBOL_DISPLACEMENT)
+                add_field(reformat_key(key, ADDED),
+                          value_after,
+                          depth,
+                          SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == ADDED:
             formatted_list.append(
-                add_field(reformat_key(key, ADDED), process_value(value, depth), depth, SYMBOL_DISPLACEMENT)
+                add_field(reformat_key(key, ADDED),
+                          process_value(value, depth),
+                          depth,
+                          SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == DELETED:
             formatted_list.append(
-                add_field(reformat_key(key, DELETED), process_value(value, depth), depth, SYMBOL_DISPLACEMENT)
+                add_field(reformat_key(key, DELETED),
+                          process_value(value, depth),
+                          depth,
+                          SYMBOL_DISPLACEMENT)
             )
         elif descriptor['type'] == SUBDESCRIPTORS:
             formatted_list.append(
