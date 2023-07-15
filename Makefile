@@ -7,7 +7,7 @@ gendiff:
 build:
 	poetry build
 
-publish: install lint build
+publish: install lint test build
 	poetry config repositories.test-pypi https://test.pypi.org/legacy/
 	poetry publish -r test-pypi
 
