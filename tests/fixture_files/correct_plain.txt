@@ -1,0 +1,9 @@
+Property 'common.setting2' was updated. From 200 to 100
+Property 'common.setting3' was removed
+Property 'common.setting6.doge.wow' was updated. From '' to 'mew'
+Property 'common.setting6.key' was removed
+Property 'common.setting6.list' was added with value: [complex value]
+Property 'group1' was removed
+Property 'group2.abc' was updated. From 12345 to 'abcd'
+Property 'group2.deep.name' was added with value: 'john'
+Property 'group3' was added with value: [complex value]

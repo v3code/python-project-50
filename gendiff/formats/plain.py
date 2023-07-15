@@ -8,7 +8,7 @@ def resolve_value(value):
     elif value is None:
         return 'null'
     elif isinstance(value, bool):
-        return str(value).lower()
+        return 'true' if value else 'false'
     elif isinstance(value, dict) or isinstance(value, list):
         return '[complex value]'
     else:

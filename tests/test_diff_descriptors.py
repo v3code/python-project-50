@@ -1,17 +1,20 @@
-from faker import Faker
-
 from gendiff.core.diff_descriptors import get_added_field_descriptor, \
     ADDED, MODIFIED, UNCHANGED, DELETED, \
     get_modified_field_descriptor, get_deleted_field_descriptor, \
     get_unchanged_field_descriptor, build_diff_descriptors
 
 
-def test_diff_builder(flat_files, flat_descriptors):
-    descriptors = build_diff_descriptors(flat_files[0], flat_files[1])
+def test_flat_diff_builder(flat_files, flat_descriptors):
+    descriptors = build_diff_descriptors(*flat_files)
     assert descriptors == flat_descriptors
 
 
-def test_get_added_descriptor(faker: Faker):
+def test_nested_diff_builder(nested_files, nested_descriptors):
+    descriptors = build_diff_descriptors(*nested_files)
+    assert descriptors == nested_descriptors
+
+
+def test_get_added_descriptor(faker):
     mock_key = faker.name()
     mock_value = faker.unique.random_int()
 
@@ -26,7 +29,7 @@ def test_get_added_descriptor(faker: Faker):
     assert add_descriptor == expected_descriptor
 
 
-def test_get_modified_descriptor(faker: Faker):
+def test_get_modified_descriptor(faker):
     mock_key = faker.name()
     mock_value_before = faker.unique.random_int()
     mock_value_after = faker.unique.random_int()
@@ -47,7 +50,7 @@ def test_get_modified_descriptor(faker: Faker):
     assert modified_descriptor == expected_descriptor
 
 
-def test_get_deleted_descriptor(faker: Faker):
+def test_get_deleted_descriptor(faker):
     mock_key = faker.name()
     mock_value = faker.unique.random_int()
 
@@ -62,7 +65,7 @@ def test_get_deleted_descriptor(faker: Faker):
     assert deleted_descriptor == expected_descriptor
 
 
-def test_get_unchanged_descriptor(faker: Faker):
+def test_get_unchanged_descriptor(faker):
     mock_key = faker.name()
     mock_value = faker.unique.random_int()
 

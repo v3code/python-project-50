@@ -23,7 +23,7 @@ def add_field(key, value, depth=0, displace=0):
 
 def process_value(value, depth=0):
     if isinstance(value, bool):
-        return str(value).lower()
+        return 'true' if value else 'false'
     if value is None:
         return 'null'
     elif isinstance(value, dict):

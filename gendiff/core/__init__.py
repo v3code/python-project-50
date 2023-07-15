@@ -1,1 +1,1 @@
-__all__ = ['generator.py']
+__all__ = ["diff_generator"]

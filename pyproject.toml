@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "CLI tool that generates differnece between two files"
 authors = ["Vitaliy Vorobyov <vitalik.w555@gmail.com>"]
 packages = [
-  { include = "gendiff" },
+    { include = "gendiff" },
 ]
 
 [tool.poetry.dependencies]
