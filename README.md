@@ -1,6 +1,7 @@
 ### Hexlet tests and linter status:
 
 [![Actions Status](https://github.com/v3code/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/v3code/python-project-50/actions)
+[![Python CI](https://github.com/v3code/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/v3code/python-project-50/actions/workflows/pyci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ce93a59349ae42d1b6a3/maintainability)](https://codeclimate.com/github/v3code/python-project-50/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/ce93a59349ae42d1b6a3/test_coverage)](https://codeclimate.com/github/v3code/python-project-50/test_coverage)
 
@@ -90,3 +91,15 @@ Property 'group3' was added with value: [complex value]
   }
 ]
 ```
+
+## Examples
+
+### stylish (default)
+[![asciicast](https://asciinema.org/a/eGCPXuL8ZVsbbkUNvy06TLdn2.svg)](https://asciinema.org/a/eGCPXuL8ZVsbbkUNvy06TLdn2)
+
+
+### plain
+[![asciicast](https://asciinema.org/a/xbULkTl0rUcvvrx1dqzaJozHP.svg)](https://asciinema.org/a/xbULkTl0rUcvvrx1dqzaJozHP)
+
+### json
+[![asciicast](https://asciinema.org/a/xbULkTl0rUcvvrx1dqzaJozHP.svg)](https://asciinema.org/a/xbULkTl0rUcvvrx1dqzaJozHP)
