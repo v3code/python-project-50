@@ -20,5 +20,5 @@ test:
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
 
-package-install: install lint build
+package-install: install build
 	python3 -m pip install --force-reinstall dist/*.whl
